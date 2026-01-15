@@ -44,17 +44,17 @@
         "@anthropic-ai/mcp-server-memory"
       ]
     },
-    // GitHub Access: PRs, Issues, and Repo Management
-    "github": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@anthropic-ai/mcp-server-github"
-      ],
-      "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
-      }
-    }
+    // GitHub Access: Uncomment and set GITHUB_TOKEN env var to enable
+    // "github": {
+    //   "command": "npx",
+    //   "args": [
+    //     "-y",
+    //     "@anthropic-ai/mcp-server-github"
+    //   ],
+    //   "env": {
+    //     "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+    //   }
+    // }
   },
   // --- AGENT INSTRUCTIONS (The Laws) ---
   "instructions": [
