@@ -1,0 +1,38 @@
+# Progress Tracker: Habit Forge
+
+## Session Metadata
+- **Current Session:** Setup & Polish Phase
+- **Status:** ARCHITECTURE_SECURED
+- **Last Activity:** 2026-01-15 10:45 AM
+- **Active Sprint:** sprint-1 (Foundation Sprint)
+
+---
+
+## Milestone Checklist
+
+### Phase 0: Environment Forge ✅
+- [x] Install OpenCode CLI (v1.1.21)
+- [x] Install Ralph CLI (@iannuttall/ralph)
+- [x] Pull Ollama models (DeepSeek-R1, Qwen2)
+
+### Phase 1: Sovereign Configuration ✅
+- [x] Create `AGENTS.md` with 999 Mantra
+- [x] Create `opencode.jsonc` with MCP servers
+- [x] Create `prd.json` with sprint structure
+
+### Phase 2: Habit Forge MVP 🚧
+- [ ] T1: Dashboard Foundation
+- [ ] T2: Streak Engine
+- [ ] T3: Navigation Shell
+
+---
+
+## Active Blockers
+- None
+
+## Next Action
+- Begin `T1: Dashboard Foundation` via Ralph Loop.
+
+---
+
+**Sign-off:** Sovereignty Secured for Devonte Brown.

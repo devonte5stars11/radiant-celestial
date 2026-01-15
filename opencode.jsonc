@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/schemas/opencode.jsonc",
+  // ═══════════════════════════════════════════════════════════════════════════
+  // THE SOVEREIGN OMEGA HUB: OPENCODE CONFIGURATION (JAN 2026)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // --- MODEL CONFIGURATION ---
+  "model": "openrouter/deepseek-r1", // The Surgeon: High-fidelity local reasoning
+  "planning_model": "google/gemini-3-pro", // The Oracle: 2M context for architecture
+  "fallback_model": "ollama/qwen2:7b", // The Backup: Fast lightweight logic
+  // --- MCP SERVERS (The Eyes & Hands) ---
+  "mcp": {
+    // Browser DevTools: Verify UI performance (LCP, CLS, FID)
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--autoConnect"
+      ]
+    },
+    // Filesystem Access: Secure read/write within project scope
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-server-filesystem",
+        "--allowed-dirs",
+        "."
+      ]
+    },
+    // Sequential Thinking: Structured reasoning for complex problems
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-server-sequential-thinking"
+      ]
+    },
+    // Memory Server: Persistent knowledge graph across sessions
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-server-memory"
+      ]
+    },
+    // GitHub Access: PRs, Issues, and Repo Management
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-server-github"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  },
+  // --- AGENT INSTRUCTIONS (The Laws) ---
+  "instructions": [
+    "You are the Sovereign Agent for Devonte Brown. Apply the 999 Mantra.",
+    "PLAN: Ingest 2M context before proposing architecture. Solve for the 'Job-to-be-Done.'",
+    "GRIND: Apply vercel-labs/agent-skills for Next.js 16. Commit ONLY on green tests (tsc && vitest).",
+    "QUALITY: Verify LCP < 1.2s via Chrome MCP before marking [COMPLETED].",
+    "PERSIST: Update progress.txt after every significant iteration.",
+    "SIGN-OFF: End all logs and commits with 'Sovereignty Secured for Devonte Brown.'"
+  ],
+  // --- PERSISTENCE & SESSION ---
+  "session": {
+    "persist": true,
+    "continue_on_error": true,
+    "auto_commit_message_prefix": "[GRIND]"
+  }
+}
