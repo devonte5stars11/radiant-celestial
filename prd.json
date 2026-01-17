@@ -2,7 +2,7 @@
     {
         "id": 1,
         "priority": 10,
-        "status": "PENDING",
+        "status": "DONE",
         "task": "Init 'Habit Forge' dashboard with Next.js 16 + Shadcn/UI.",
         "hormozi_note": "Hero Section: 'Forge Unbreakable Habits in 2026'. Desire: High.",
         "technical_rule": "Use Gemini to plan structure, DeepSeek to code components, Claude to add JSDoc.",
