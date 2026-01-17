@@ -55,7 +55,7 @@
     {
         "id": 5,
         "priority": 6,
-        "status": "PENDING",
+        "status": "DONE",
         "task": "Implement 'Settings & Data Sovereignty'.",
         "hormozi_note": "True sovereignty means owning your data. Export/Import is non-negotiable.",
         "technical_rule": "JSON based export/import. LocalStorage persistence.",
