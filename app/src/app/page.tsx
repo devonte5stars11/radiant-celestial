@@ -1,8 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, CheckCircle2, Flame } from "lucide-react";
+import { HabitGrid } from "@/components/habit-grid";
+import { CreateHabitForm } from "@/components/create-habit-form";
 
 /**
  * Hero Section for Habit Forge Dashboard (Ultimate Edition)
@@ -12,6 +15,16 @@ import { ArrowRight, Play, CheckCircle2, Flame } from "lucide-react";
  * @sovereignty Devonte Brown - Platinum Trinity Protocol
  */
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // or a loading skeleton
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-black text-white selection:bg-amber-500/30">
 
@@ -105,12 +118,23 @@ export default function Home() {
         </motion.div>
       </main>
 
+      {/* DASHBOARD PREVIEW (MVP) */}
+      <section className="container mx-auto max-w-5xl px-6 py-24">
+        <div className="mb-12 flex flex-col items-center gap-6 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white">Your Protocols</h2>
+          <div className="w-full max-w-md">
+            <CreateHabitForm />
+          </div>
+        </div>
+        <HabitGrid />
+      </section>
+
       {/* Footer / Status */}
       <motion.footer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="fixed bottom-6 text-center text-xs font-mono text-zinc-800"
+        className="py-12 text-center text-xs font-mono text-zinc-800"
       >
         SOVEREIGNTY SECURED
       </motion.footer>
