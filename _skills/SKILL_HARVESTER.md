@@ -6,9 +6,9 @@
 This is the "Self-Evolving Arsenal." It monitors X (via Grok) for cutting-edge workflows, productivity systems, and engineering patterns shared by top performers. When it identifies a valuable pattern, it automatically reverse-engineers it into a reusable Agent Skill.
 
 ## 🛠️ Tech Stack
--   **API Gateway**: OpenRouter (unified access to Grok, GPT-4, Claude, etc.)
--   **Primary Model**: `x-ai/grok-beta` (for real-time X data)
--   **Fallback Models**: `anthropic/claude-3.5-sonnet` (for reverse-engineering)
+-   **API Gateway**: OpenRouter (unified access to all models)
+-   **Primary Model**: `x-ai/grok-beta` (Best ROI: Real-time X data at lowest cost)
+-   **Fallback Models**: `anthropic/claude-3.5-sonnet` (for complex reverse-engineering)
 -   **Storage**: `/_skills/` directory (auto-generated `.md` files)
 -   **Curation**: Verified accounts only (10k+ followers, proven expertise)
 
