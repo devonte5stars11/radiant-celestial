@@ -74,6 +74,11 @@ All crystallized knowledge lives in `/_skills/`. Reference by name.
 | `SOVEREIGN_DATA` | Zustand + LocalStorage architecture |
 | `TRINITY_PROTOCOL` | Multi-model routing rules |
 | `MCP_COMMANDER` | File/Browser/Terminal mastery |
+| `RALPH_PROTOCOL` | The "Night Shift" autonomous grinder |
+| `AI_ORACLE` | Local AI / Edge intelligence coaching |
+| `HYBRID_CLOUD` | Safe cloud power (Supabase/RLS) |
+| `GROK_PULSE` | Real-time community intelligence (X.ai) |
+| `P2P_SYNC` | Decentralized multi-device synchronization |
 | `VERIFICATION_LOOP` | Test + Screenshot + Commit flow |
 | `PROJECT_BOOTSTRAP` | Next.js 16 quick start |
 | `GIT_DISCIPLINE` | Clean commit patterns |
