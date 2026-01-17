@@ -1,21 +1,33 @@
 {
-  "$schema": "https://opencode.ai/schemas/opencode.jsonc",
   // ═══════════════════════════════════════════════════════════════════════════
-  // THE SOVEREIGN OMEGA HUB: OPENCODE CONFIGURATION (JAN 2026)
+  // THE PLATINUM SOVEREIGN HUB: OPENCODE CONFIGURATION (JAN 17, 2026)
   // ═══════════════════════════════════════════════════════════════════════════
-  // --- MODEL CONFIGURATION ---
-  "model": "openrouter/deepseek-r1", // The Surgeon: High-fidelity local reasoning
-  "planning_model": "google/gemini-3-pro", // The Oracle: 2M context for architecture
-  "fallback_model": "ollama/qwen2:7b", // The Backup: Fast lightweight logic
+  "model_router": "openrouter",
+  // --- THE PLATINUM TRINITY ROUTING ---
+  "models": {
+    "planning": "google/gemini-3-pro", // Oracle: 2M Context
+    "grind": "deepseek/deepseek-r1", // Surgeon: Raw Logic/Tests
+    "polish": "anthropic/claude-3.5-sonnet", // Artisan: Readability/Refactor
+    "scout": "xai/grok-beta", // Scout: ROI/Trend Check
+    "backup": "ollama/deepseek-r1:14b" // Sovereign Backup (Local)
+  },
   // --- MCP SERVERS (The Eyes & Hands) ---
   "mcp": {
-    // Browser DevTools: Verify UI performance (LCP, CLS, FID)
+    // Browser DevTools: Verify UI performance (Core Web Vitals)
     "chrome-devtools": {
       "command": "npx",
       "args": [
         "-y",
-        "chrome-devtools-mcp@latest",
+        "@modelcontextprotocol/server-chrome-devtools",
         "--autoConnect"
+      ]
+    },
+    // Vercel Integration: Deploy previews, check build status
+    "vercel": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@vercel/mcp-server"
       ]
     },
     // Filesystem Access: Secure read/write within project scope
@@ -43,29 +55,20 @@
         "-y",
         "@anthropic-ai/mcp-server-memory"
       ]
-    },
-    // GitHub Access: Uncomment and set GITHUB_TOKEN env var to enable
-    // "github": {
-    //   "command": "npx",
-    //   "args": [
-    //     "-y",
-    //     "@anthropic-ai/mcp-server-github"
-    //   ],
-    //   "env": {
-    //     "GITHUB_TOKEN": "${GITHUB_TOKEN}"
-    //   }
-    // }
+    }
   },
-  // --- AGENT INSTRUCTIONS (The Laws) ---
+  // --- THE PLATINUM LAWS ---
   "instructions": [
-    "You are the Sovereign Agent for Devonte Brown. Apply the 999 Mantra.",
-    "PLAN: Ingest 2M context before proposing architecture. Solve for the 'Job-to-be-Done.'",
-    "GRIND: Apply vercel-labs/agent-skills for Next.js 16. Commit ONLY on green tests (tsc && vitest).",
-    "QUALITY: Verify LCP < 1.2s via Chrome MCP before marking [COMPLETED].",
-    "PERSIST: Update progress.txt after every significant iteration.",
-    "SIGN-OFF: End all logs and commits with 'Sovereignty Secured for Devonte Brown.'"
+    "You are the Sovereign Agent for Devonte Brown. Follow the Platinum Trinity Protocol.",
+    "1. PLAN with Gemini (Oracle): Ingest full repo context + prd.json.",
+    "2. SCOUT with Grok (optional): Validate ROI/trend before heavy investment.",
+    "3. GRIND with DeepSeek (Surgeon): Build fast. Ugly-but-green is acceptable.",
+    "4. POLISH with Claude (Artisan): MANDATORY final step. Refactor for readability, JSDoc, Vercel Best Practices.",
+    "CHROME GATE: No commit without LCP < 1.2s verification via Chrome MCP.",
+    "FAIL-SAFE: If any model fails 3 consecutive times, STOP and flag <status>BLOCKED</status>.",
+    "SIGN-OFF: 'Sovereignty Secured (Polished by Claude).'"
   ],
-  // --- PERSISTENCE & SESSION ---
+  // --- SESSION PERSISTENCE ---
   "session": {
     "persist": true,
     "continue_on_error": true,

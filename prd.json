@@ -1,96 +1,42 @@
-{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "project": "Habit Forge MVP",
-    "version": "1.0.0",
-    "vision": "A clinical, high-performance habit tracker for Sovereign Commanders.",
-    "status": "ACTIVE",
-    "architect": "Devonte Brown (via Antigravity)",
-    "vibe_check": {
-        "aesthetic": "obsidian-dark",
-        "tone": "professional, minimalist, premium",
-        "inspiration": [
-            "Linear",
-            "Raycast",
-            "Vercel Dashboard"
+[
+    {
+        "id": 1,
+        "priority": 10,
+        "status": "PENDING",
+        "task": "Init 'Habit Forge' dashboard with Next.js 16 + Shadcn/UI.",
+        "hormozi_note": "Hero Section: 'Forge Unbreakable Habits in 2026'. Desire: High.",
+        "technical_rule": "Use Gemini to plan structure, DeepSeek to code components, Claude to add JSDoc.",
+        "acceptance_criteria": [
+            "LCP < 1.0s",
+            "Green TSC",
+            "0 Accessibility errors",
+            "Dark mode by default"
         ]
     },
-    "sprints": [
-        {
-            "id": "sprint-1",
-            "name": "Foundation Sprint",
-            "status": "TODO",
-            "tasks": [
-                {
-                    "id": "T1",
-                    "component": "Dashboard Foundation",
-                    "description": "Initialize Next.js 16 app with agent-skills. Setup CSS variables for the 999 aesthetic.",
-                    "requirements": [
-                        "LCP < 1.0s",
-                        "Green TSC",
-                        "0 Accessibility errors",
-                        "Dark mode by default"
-                    ],
-                    "status": "TODO",
-                    "assignee": "Sovereign Agent"
-                },
-                {
-                    "id": "T2",
-                    "component": "Streak Engine",
-                    "description": "Implement the core logic for habit persistence and streak visualization.",
-                    "requirements": [
-                        "Unit tested with Vitest (>90% coverage)",
-                        "Clinically optimized data structures",
-                        "Zustand for state management"
-                    ],
-                    "status": "TODO",
-                    "assignee": "Sovereign Agent"
-                },
-                {
-                    "id": "T3",
-                    "component": "Navigation Shell",
-                    "description": "Create the main app shell with sidebar navigation and header.",
-                    "requirements": [
-                        "Responsive down to 375px",
-                        "Keyboard accessible",
-                        "Smooth transitions"
-                    ],
-                    "status": "TODO",
-                    "assignee": "Sovereign Agent"
-                }
-            ]
-        },
-        {
-            "id": "sprint-2",
-            "name": "Polish Sprint",
-            "status": "BACKLOG",
-            "tasks": [
-                {
-                    "id": "T4",
-                    "component": "Notifications & Reminders",
-                    "description": "Implement push notification system for habit reminders.",
-                    "requirements": [
-                        "Service Worker integration",
-                        "Permission handling",
-                        "User preference storage"
-                    ],
-                    "status": "TODO",
-                    "assignee": "TBD"
-                }
-            ]
-        }
-    ],
-    "performance_benchmarks": {
-        "lcp": "1.2s",
-        "fid": "100ms",
-        "cls": "0.1",
-        "ttfb": "200ms"
+    {
+        "id": 2,
+        "priority": 9,
+        "status": "PENDING",
+        "task": "Implement 'Streak Gamification' logic.",
+        "hormozi_note": "Add 'Loss Aversion' notifications. Users hate losing streaks more than they love gaining them.",
+        "technical_rule": "Use Grok to verify current gamification trends on X first.",
+        "acceptance_criteria": [
+            "Unit tested with Vitest (>90% coverage)",
+            "Zustand for state management",
+            "Celebrate milestones (7, 30, 100 days)"
+        ]
     },
-    "tech_stack": {
-        "framework": "Next.js 16",
-        "styling": "Vanilla CSS + CSS Variables",
-        "state": "Zustand",
-        "testing": "Vitest + Playwright",
-        "deployment": "Vercel"
-    },
-    "sign_off": "Sovereignty Secured for Devonte Brown."
-}
+    {
+        "id": 3,
+        "priority": 8,
+        "status": "PENDING",
+        "task": "Build Navigation Shell with sidebar and header.",
+        "hormozi_note": "Command palette (Cmd+K) for power users. Premium feel.",
+        "technical_rule": "Claude polishes the final animations and transitions.",
+        "acceptance_criteria": [
+            "Responsive down to 375px",
+            "Keyboard accessible",
+            "Smooth 60fps transitions"
+        ]
+    }
+]
