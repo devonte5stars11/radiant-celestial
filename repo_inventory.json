@@ -1,0 +1,20 @@
+[
+    {
+        "name": "human-being-studio-template-activeproject",
+        "status": "UNKNOWN (Private)",
+        "action": "RESCUE",
+        "notes": "Appears to be the only recent project besides the current workspace."
+    },
+    {
+        "name": "happy-coder-bot",
+        "status": "ABANDONED (2018)",
+        "action": "ARCHIVE",
+        "notes": "Legacy HTML project."
+    },
+    {
+        "name": "Hello-World",
+        "status": "ABANDONED (2017)",
+        "action": "ARCHIVE",
+        "notes": "First time repo."
+    }
+]
