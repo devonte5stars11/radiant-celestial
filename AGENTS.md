@@ -78,6 +78,7 @@ All crystallized knowledge lives in `/_skills/`. Reference by name.
 | `AI_ORACLE` | Local AI / Edge intelligence coaching |
 | `HYBRID_CLOUD` | Safe cloud power (Supabase/RLS) |
 | `GROK_PULSE` | Real-time community intelligence (X.ai) |
+| `SKILL_HARVESTER` | Auto-discover & crystallize skills from X |
 | `P2P_SYNC` | Decentralized multi-device synchronization |
 | `VERIFICATION_LOOP` | Test + Screenshot + Commit flow |
 | `PROJECT_BOOTSTRAP` | Next.js 16 quick start |
