@@ -13,6 +13,8 @@ interface HabitState {
     addHabit: (name: string) => void;
     removeHabit: (id: string) => void;
     toggleHabit: (id: string, date: string) => void;
+    importData: (newHabits: Habit[]) => void;
+    nukeData: () => void;
     getStreak: (id: string) => { current: number; max: number; isAtRisk: boolean };
 }
 
@@ -53,11 +55,15 @@ export const useHabitStore = create<HabitState>()(
                     }),
                 })),
 
+            importData: (newHabits: Habit[]) => set({ habits: newHabits }),
+
+            nukeData: () => set({ habits: [] }),
+
             getStreak: (id) => {
                 const habit = get().habits.find((h) => h.id === id);
                 if (!habit) return { current: 0, max: 0, isAtRisk: false };
 
-                const sortedDates = [...habit.completedDates].sort();
+                const sortedDates = [...habit.completedDates].sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
                 if (sortedDates.length === 0) return { current: 0, max: 0, isAtRisk: false };
 
                 const today = new Date().toISOString().split('T')[0];
@@ -65,23 +71,30 @@ export const useHabitStore = create<HabitState>()(
 
                 // Calculate Current Streak
                 let currentStreak = 0;
-                let checkDate = new Date();
+                let maxStreak = 0;
+                let tempStreak = 0;
 
-                // If today is done, start checking from today. If not, start from yesterday.
-                if (sortedDates.includes(today)) {
-                    checkDate = new Date();
-                } else if (sortedDates.includes(yesterday)) {
-                    checkDate = new Date(Date.now() - 86400000);
+                // Determine the starting point for current streak calculation
+                let checkDate = new Date();
+                let isStreakActiveToday = sortedDates.includes(today);
+                let isStreakActiveYesterday = sortedDates.includes(yesterday);
+
+                if (isStreakActiveToday) {
+                    checkDate = new Date(); // Start checking from today
+                } else if (isStreakActiveYesterday) {
+                    checkDate = new Date(Date.now() - 86400000); // Start checking from yesterday
                 } else {
-                    // Streak broken
+                    // Streak broken or never started
                     return { current: 0, max: 0, isAtRisk: false };
                 }
 
+                // Calculate current streak
+                let tempCheckDate = new Date(checkDate.getTime());
                 while (true) {
-                    const dateStr = checkDate.toISOString().split('T')[0];
+                    const dateStr = tempCheckDate.toISOString().split('T')[0];
                     if (sortedDates.includes(dateStr)) {
                         currentStreak++;
-                        checkDate.setDate(checkDate.getDate() - 1);
+                        tempCheckDate.setDate(tempCheckDate.getDate() - 1);
                     } else {
                         break;
                     }

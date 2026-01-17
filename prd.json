@@ -29,7 +29,7 @@
     {
         "id": 3,
         "priority": 8,
-        "status": "PENDING",
+        "status": "DONE",
         "task": "Build Navigation Shell with sidebar and header.",
         "hormozi_note": "Command palette (Cmd+K) for power users. Premium feel.",
         "technical_rule": "Claude polishes the final animations and transitions.",
@@ -37,6 +37,32 @@
             "Responsive down to 375px",
             "Keyboard accessible",
             "Smooth 60fps transitions"
+        ]
+    },
+    {
+        "id": 4,
+        "priority": 7,
+        "status": "DONE",
+        "task": "Develop 'Analytics Engine' with Recharts.",
+        "hormozi_note": "Visual proof of work. Users need to SEE their progress to believe it.",
+        "technical_rule": "DeepSeek ensures accurate data aggregation.",
+        "acceptance_criteria": [
+            "Area chart for consistency",
+            "Metric cards for KPIs",
+            "Mobile responsive charts"
+        ]
+    },
+    {
+        "id": 5,
+        "priority": 6,
+        "status": "PENDING",
+        "task": "Implement 'Settings & Data Sovereignty'.",
+        "hormozi_note": "True sovereignty means owning your data. Export/Import is non-negotiable.",
+        "technical_rule": "JSON based export/import. LocalStorage persistence.",
+        "acceptance_criteria": [
+            "Download full state as JSON",
+            "Restore state from JSON",
+            "Nuke data option"
         ]
     }
 ]
