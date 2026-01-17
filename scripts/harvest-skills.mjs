@@ -1,6 +1,7 @@
 // Skill Harvester - Auto-discover workflows from X using OpenRouter + Grok
 // Usage: node scripts/harvest-skills.mjs
 
+import 'dotenv/config';
 import OpenAI from 'openai';
 import fs from 'fs/promises';
 import path from 'path';
@@ -16,7 +17,12 @@ const NICHES = [
     'Productivity Systems',
     'Code Architecture',
     'Indie Hacking',
-    'Deep Work'
+    'Deep Work',
+    'Startup Growth',
+    'Sales & Outbound',
+    'Content Creation',
+    'Learning Frameworks',
+    'Engineering Leadership'
 ];
 
 async function harvestSkills() {
@@ -26,7 +32,7 @@ async function harvestSkills() {
         console.log(`📡 Scanning: ${niche}`);
 
         const completion = await openrouter.chat.completions.create({
-            model: 'x-ai/grok-beta',
+            model: 'x-ai/grok-4.1-fast', // Latest Grok with real-time X access
             messages: [
                 {
                     role: 'system',
