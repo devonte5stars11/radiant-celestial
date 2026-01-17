@@ -35,7 +35,7 @@
 | Surgeon | DeepSeek-R1 | Ready (32b Local) |
 | Artisan | Claude 3.5 Sonnet | Ready (Cloud) |
 | Scout | Grok Beta | Ready (Cloud) |
-| Backup | DeepSeek-R1:14b | Pending Pull |
+| Backup | DeepSeek-R1:14b | Ready (14b Local) |
 
 ---
 

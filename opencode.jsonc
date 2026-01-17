@@ -1,77 +1,10 @@
 {
-  // ═══════════════════════════════════════════════════════════════════════════
-  // THE PLATINUM SOVEREIGN HUB: OPENCODE CONFIGURATION (JAN 17, 2026)
-  // ═══════════════════════════════════════════════════════════════════════════
-  "model_router": "openrouter",
-  // --- THE PLATINUM TRINITY ROUTING ---
-  "models": {
-    "planning": "google/gemini-3-pro", // Oracle: 2M Context
-    "grind": "deepseek/deepseek-r1", // Surgeon: Raw Logic/Tests
-    "polish": "anthropic/claude-3.5-sonnet", // Artisan: Readability/Refactor
-    "scout": "xai/grok-beta", // Scout: ROI/Trend Check
-    "backup": "ollama/deepseek-r1:14b" // Sovereign Backup (Local)
-  },
-  // --- MCP SERVERS (The Eyes & Hands) ---
-  "mcp": {
-    // Browser DevTools: Verify UI performance (Core Web Vitals)
-    "chrome-devtools": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-chrome-devtools",
-        "--autoConnect"
-      ]
-    },
-    // Vercel Integration: Deploy previews, check build status
-    "vercel": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@vercel/mcp-server"
-      ]
-    },
-    // Filesystem Access: Secure read/write within project scope
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@anthropic-ai/mcp-server-filesystem",
-        "--allowed-dirs",
-        "."
-      ]
-    },
-    // Sequential Thinking: Structured reasoning for complex problems
-    "sequential-thinking": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@anthropic-ai/mcp-server-sequential-thinking"
-      ]
-    },
-    // Memory Server: Persistent knowledge graph across sessions
-    "memory": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@anthropic-ai/mcp-server-memory"
-      ]
-    }
-  },
-  // --- THE PLATINUM LAWS ---
+  "model": "deepseek/deepseek-r1",
   "instructions": [
-    "You are the Sovereign Agent for Devonte Brown. Follow the Platinum Trinity Protocol.",
-    "1. PLAN with Gemini (Oracle): Ingest full repo context + prd.json.",
-    "2. SCOUT with Grok (optional): Validate ROI/trend before heavy investment.",
-    "3. GRIND with DeepSeek (Surgeon): Build fast. Ugly-but-green is acceptable.",
-    "4. POLISH with Claude (Artisan): MANDATORY final step. Refactor for readability, JSDoc, Vercel Best Practices.",
-    "CHROME GATE: No commit without LCP < 1.2s verification via Chrome MCP.",
-    "FAIL-SAFE: If any model fails 3 consecutive times, STOP and flag <status>BLOCKED</status>.",
-    "SIGN-OFF: 'Sovereignty Secured (Polished by Claude).'"
+    "You are the Sovereign Agent for Devonte Brown.",
+    "Follow the Platinum Trinity Protocol: PLAN -> GRIND -> POLISH.",
+    "Read prd.json for tasks and AGENTS.md for laws.",
+    "Sign-off: 'Sovereignty Secured (Polished by Claude).'"
   ],
-  // --- SESSION PERSISTENCE ---
-  "session": {
-    "persist": true,
-    "continue_on_error": true,
-    "auto_commit_message_prefix": "[GRIND]"
-  }
+  "$schema": "https://opencode.ai/config.json"
 }
