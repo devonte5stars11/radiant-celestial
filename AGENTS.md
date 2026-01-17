@@ -64,6 +64,22 @@
 opencode run "Read prd.json & AGENTS.md. Execute Task #1 using the Platinum Trinity Protocol (Plan->Scout->Grind->Polish). Verify LCP < 1.2s via Chrome MCP. Output <promise>DONE</promise> only when Claude certifies 'Enterprise Grade'." --max-iterations 60
 ```
 
+## 📚 THE SKILL ARSENAL
+
+All crystallized knowledge lives in `/_skills/`. Reference by name.
+
+| Skill | Purpose |
+|-------|---------|
+| `UI_FORGE` | Shadcn/Tailwind/Framer Motion patterns |
+| `SOVEREIGN_DATA` | Zustand + LocalStorage architecture |
+| `TRINITY_PROTOCOL` | Multi-model routing rules |
+| `MCP_COMMANDER` | File/Browser/Terminal mastery |
+| `VERIFICATION_LOOP` | Test + Screenshot + Commit flow |
+| `PROJECT_BOOTSTRAP` | Next.js 16 quick start |
+| `GIT_DISCIPLINE` | Clean commit patterns |
+
+**Full Index:** [ARSENAL_INDEX.md](./_skills/ARSENAL_INDEX.md)
+
 ---
 
 **SIGN-OFF:** "Sovereignty Secured (Polished by Claude)."

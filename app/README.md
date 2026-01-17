@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦅 Habit Forge | Sovereign Sanctuary
+**The Autonomous, Privacy-First Neural Rewiring Engine.**
 
-## Getting Started
+## 🧐 Purpose & Philosophy
+Habit Forge is not just a "habit tracker." It is a **Sovereign System** designed for high performers who refuse to rent their data. Unlike generic apps that store your habits in the cloud to train their algorithms, Habit Forge operates on a **Local-First** philosophy.
 
-First, run the development server:
+**Your Data. Your Grind. Your Sovereignty.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 💎 Key Benefits
+-   **Zero Cloud Reliance**: All data lives in your browser's local storage or your JSON backups.
+-   **Loss Aversion Gamification**: The system highlights "At Risk" streaks (completed yesterday, not today) to psychologically compel consistency.
+-   **Visual Intelligence**: Analytics engine transforms your daily inputs into trend lines and consistency metrics.
+-   **Frictionless Flow**: Keyboard-first navigation (`Cmd+K`) for rapid interaction.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎮 How to Use
+### 1. The Dashboard (`/`)
+-   **Create Protocol**: Hit `+ New Protocol` (or `Cmd+K` -> "New Protocol") to define a new habit (e.g., "Deep Work 4h").
+-   **Mark Complete**: Click the circle on the card to mark it as done for today.
+-   **Track Streaks**: Watch your streak counter rise. If you miss a day, the counter resets. If you are "At Risk" (missed today but did yesterday), the card glows orange.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Analytics (`/analytics`)
+-   **Visualize**: See your completion trends over the last 30 days.
+-   **Metrics**: Track your "Total Active Protocols" and "High Score" streaks.
 
-## Learn More
+### 3. Settings & Sovereignty (`/settings`)
+-   **Export Data**: Click "Export JSON" to download a full backup of your life's data. **Do this weekly.**
+-   **Import Data**: Restore your state on a new device or browser.
+-   **Nuke**: Clear everything and start fresh.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Technical Stack
+-   **Framework**: Next.js 16 (App Router)
+-   **Styling**: TailwindCSS + Shadcn/UI
+-   **State**: Zustand + Persist Middleware
+-   **Viz**: Recharts
+-   **Icons**: Lucide React
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⌨️ Shortcuts
+| Key | Action |
+|-----|--------|
+| `Cmd + K` | Open Command Palette |
