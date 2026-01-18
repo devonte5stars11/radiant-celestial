@@ -21,6 +21,7 @@ This directory contains crystallized knowledge for autonomous development. Each 
 | [P2P_SYNC](./P2P_SYNC.md) | Connectivity | Decentralized device sync |
 | [SKILL_HARVESTER](./SKILL_HARVESTER.md) | Meta | Auto-discover skills from X |
 | [TRINITY_ORCHESTRATOR](./TRINITY_ORCHESTRATOR.md) | Meta | Automated multi-agent delegation |
+| [AGENT_SWARM](./AGENT_SWARM.md) | Meta | Multi-persona collaborative analysis |
 | [PROJECT_BOOTSTRAP](./PROJECT_BOOTSTRAP.md) | Initialize | Start new projects with Platinum defaults |
 | [GIT_DISCIPLINE](./GIT_DISCIPLINE.md) | Version Control | Clean commit history patterns |
 
