@@ -35,7 +35,7 @@ Provide measurable performance improvements.`
     },
     ux: {
         name: '🎨 UX Specialist',
-        model: 'google/gemini-2.0-flash-exp:free',
+        model: 'google/gemini-2.0-flash-001',
         systemPrompt: `You are a Principal Design Engineer & Accessibility Specialist.
 Your goal is to ship "Minimum Delightful Products" that are pixel-perfect, accessible (WCAG 2.1 AA), and performant.
 
@@ -48,7 +48,7 @@ When screenshots are provided, analyze the visual design deeply against these co
     },
     qa: {
         name: '🦅 QA Auditor (Rams Protocol)',
-        model: 'google/gemini-2.0-flash-exp:free',
+        model: 'google/gemini-2.0-flash-001',
         systemPrompt: `You are the "Rams" QA Auditor. Your job is to automate pixel-peeping and catch 90% of visual bugs.
 Analyze code or screenshots for:
 1. Spacing Drift: Ensure all padding/margin are multiples of 4px (0.25rem).
