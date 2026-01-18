@@ -161,26 +161,85 @@ async function runSwarm(task, personas = null) {
 const args = process.argv.slice(2);
 const swarmFlag = args.includes('--swarm');
 const personaFlag = args.find(arg => arg.startsWith('--persona='));
+const spawnFlag = args.find(arg => arg.startsWith('--spawn='));
 const task = args.filter(arg => !arg.startsWith('--')).join(' ');
+
+import fs from 'fs';
+import path from 'path';
+
+// Load Arsenal Index for Skill Awareness
+let ARSENAL_CONTEXT = "";
+try {
+    const arsenalPath = path.join(process.cwd(), '_skills', 'ARSENAL_INDEX.md');
+    if (fs.existsSync(arsenalPath)) {
+        ARSENAL_CONTEXT = "\n\nAVAILABLE SKILLS:\n" + fs.readFileSync(arsenalPath, 'utf8');
+    }
+} catch (e) {
+    console.error("Warning: Could not load Arsenal Index");
+}
+
+async function spawnAgent(description) {
+    console.log(`⚒️ AGENT FORGE ACTIVATED`);
+    console.log(`Creating agent: "${description}"...`);
+
+    // Use Gemini to forge the system prompt
+    const completion = await openrouter.chat.completions.create({
+        model: 'google/gemini-2.0-flash-exp:free',
+        messages: [
+            {
+                role: 'system',
+                content: `You are the Agent Forge. Your job is to create a highly specialized system prompt for a new AI agent based on a short description.
+Return ONLY the system prompt. No other text.
+The system prompt should be detailed, defining the persona's role, focus, and expertise.`
+            },
+            { role: 'user', content: `Create a system prompt for: ${description}` }
+        ]
+    });
+
+    const systemPrompt = completion.choices[0].message.content;
+    const name = `⚒️ ${description.split(':')[0].trim()}`;
+
+    console.log(`✅ Agent Forged: ${name}`);
+    return {
+        name,
+        model: 'google/gemini-2.0-flash-exp:free', // Default to Gemini for versatility
+        systemPrompt: systemPrompt + ARSENAL_CONTEXT
+    };
+}
+
 
 if (!task) {
     console.log('Usage:');
     console.log('  node scripts/swarm.mjs --swarm "your task"');
-    console.log('  node scripts/swarm.mjs --persona=security "review auth.ts"');
+    console.log('  node scripts/swarm.mjs --persona=security "task"');
+    console.log('  node scripts/swarm.mjs --spawn="Agent Name: Description" "task"');
     console.log('\nAvailable personas:', Object.keys(PERSONAS).join(', '));
     process.exit(1);
 }
 
-if (personaFlag) {
+if (spawnFlag) {
+    const description = spawnFlag.split('=')[1];
+    spawnAgent(description).then(agent => {
+        // Temporarily add spawned agent to personas
+        PERSONAS['spawned'] = agent;
+        runSwarm(task, ['spawned']).catch(console.error);
+    }).catch(console.error);
+} else if (personaFlag) {
     const persona = personaFlag.split('=')[1];
     if (!PERSONAS[persona]) {
         console.error(`Unknown persona: ${persona}`);
         process.exit(1);
     }
+    // Inject skills into static personas too
+    PERSONAS[persona].systemPrompt += ARSENAL_CONTEXT;
     runSwarm(task, [persona]).catch(console.error);
 } else if (swarmFlag) {
+    // Inject skills into all personas
+    Object.keys(PERSONAS).forEach(k => {
+        PERSONAS[k].systemPrompt += ARSENAL_CONTEXT;
+    });
     runSwarm(task).catch(console.error);
 } else {
-    console.error('Please specify --swarm or --persona=NAME');
+    console.error('Please specify --swarm, --persona=NAME, or --spawn="DESC"');
     process.exit(1);
 }

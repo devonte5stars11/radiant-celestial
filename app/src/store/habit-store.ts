@@ -108,7 +108,7 @@ export const useHabitStore = create<HabitState>()(
         }),
         {
             name: 'habit-forge-storage',
-            storage: createJSONStorage(() => localStorage),
+            storage: createJSONStorage(() => (typeof window !== 'undefined' ? window.localStorage : undefined) as any),
         }
     )
 );

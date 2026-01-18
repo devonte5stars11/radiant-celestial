@@ -22,6 +22,7 @@ This directory contains crystallized knowledge for autonomous development. Each 
 | [SKILL_HARVESTER](./SKILL_HARVESTER.md) | Meta | Auto-discover skills from X |
 | [TRINITY_ORCHESTRATOR](./TRINITY_ORCHESTRATOR.md) | Meta | Automated multi-agent delegation |
 | [AGENT_SWARM](./AGENT_SWARM.md) | Meta | Multi-persona collaborative analysis |
+| [AGENT_FORGE](./AGENT_FORGE.md) | Meta | Dynamically spawn specialized agents |
 | [PROJECT_BOOTSTRAP](./PROJECT_BOOTSTRAP.md) | Initialize | Start new projects with Platinum defaults |
 | [GIT_DISCIPLINE](./GIT_DISCIPLINE.md) | Version Control | Clean commit history patterns |
 
