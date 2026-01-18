@@ -1,16 +1,16 @@
-### Recursive Refinement Framework
+# The 3x3 Learning Matrix
 
 **Source:** @SahilBloom
 
 **Protocol:**
-1. **Prime**: Spend 5 minutes freewriting everything you know about the topic (no research).
-2. **Probe**: Identify 3-5 knowledge gaps from your prime output; research only those using 3 diverse sources.
-3. **Pseudocode**: Rewrite the concept in your own "code" (simplified steps/pseudocode) as if teaching a 10-year-old.
-4. **Perturb**: Teach it aloud to an imaginary skeptic; note breakdowns and refine pseudocode iteratively (3 rounds max).
-5. **Prune & Stack**: Distill to 1-page cheat sheet; link to 2 existing mental models from other domains.
+1. Select a topic and break it into a 3x3 grid: rows for Beginner/Intermediate/Advanced levels; columns for Understand/Apply/Synthesize.
+2. Fill each cell with 1 micro-task (e.g., Beginner-Understand: Watch 10-min explainer video).
+3. Time-box 90 minutes per row: complete Beginner row first, then Intermediate, then Advanced.
+4. After each row, journal 1 insight linking to prior knowledge.
+5. Review full matrix after 24 hours; iterate on weak cells with spaced repetition.
 
 **Anti-patterns:**
-- Starting with passive reading/videos (bypasses priming gaps).
-- Researching broadly without gap-list (information overload).
-- Skipping aloud teaching (hallucinated understanding).
-- Hoarding notes without pruning/stacking (no retention).
+- Skipping levels (e.g., jumping to Advanced without Beginner).
+- Overloading cells with >1 task.
+- No 24-hour review (leads to shallow retention).
+- Ignoring journal links (misses compounding knowledge).

@@ -1,19 +1,16 @@
-## 1. Workflow Name
-**The 90-Minute Outbound Blitz (AI-Augmented)**
+### LinkedIn DM Outbound Workflow
 
-## 2. Source (username)
-[@JoshBraun](https://x.com/JoshBraun) (Verified, 55k+ followers; posted Oct 8, 2024)
+**Source:** @JoshBraun
 
-## 3. Protocol (numbered steps)
-1. **Prospect Selection (10 min)**: Use Apollo.io or LinkedIn Sales Nav to filter 20 ICP-fit prospects who posted/changed jobs in last 30 days; note 1 unique detail per prospect (e.g., "Congrats on Acme launch").
-2. **AI Personalization (15 min)**: Feed details into Claude/GPT prompt: "Write a 3-sentence cold email hook that references [detail], sparks curiosity about [your value prop], ends with yes/no question." Refine 1x for tone.
-3. **Multi-Channel Deliver (30 min)**: Send LinkedIn connection req with AI hook as note → 2 min later, email with same hook + Calendly link → Record 15-sec Loom video reiterating hook, send via email reply.
-4. **Cadence Automation (20 min)**: Set Clay/Instantly sequence: Day 2 LinkedIn follow-up comment on their profile/post; Day 4 phone/text via Klenty; Day 6 "breakup" email.
-5. **Track & Triage (15 min)**: Log in Notion/G Sheets: opens/replies; prioritize 3 hottest leads for live call next day.
+**Protocol:**
+1. Identify 50 ICP prospects via LinkedIn Sales Navigator using advanced search filters (title, company size, recent activity).
+2. Scroll their profile/activity feed for 30 seconds to spot a "pain signal" (e.g., post complaining about churn, funding round mention).
+3. Send a connection request with a 1-sentence note: "Saw your post on [specific pain] – solved it at [your company]. Connect?"
+4. If accepted (within 24h), DM immediately: "Quick question: Still dealing with [pain]? Here's how we fixed it for [similar company]. [Link to 90-sec loom video demo]."
+5. No reply in 48h? Comment publicly on their latest post with value-add insight tied to pain, then re-DM.
+6. Book call via Calendly link in final DM; track in CRM with "pain type" tag for nurture sequence.
 
-## 4. Anti-patterns (what NOT to do)
-- Don't blast generic templates—always tie to recent activity or wastes 90% of sends.
-- Don't skip video—text-only gets 70% lower reply rates per tests.
-- Don't chase >7 touches—diminishing returns after Day 6.
-- Don't prospect without ICP filter—leads to <1% pipeline velocity.
-- Don't manual everything—AI skips save 2hrs/day but verify outputs.
+**Anti-patterns:**
+- Don't send generic connection requests or pitch-first DMs.
+- Don't prospect without a recent activity signal (no "spray and pray").
+- Don't use long emails/videos (>90 sec) or attach decks – keep it hyper-personalized and low-friction.

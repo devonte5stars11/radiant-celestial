@@ -1,17 +1,20 @@
-## 1. 48-Hour AI-Powered Indie Product Validation Workflow
+### 1. Workflow name
+**The "One-Week Ship Cycle" for Indie SaaS**
 
-**Source (username):** @dannypostmaa
+### 2. Source (username)
+[@pieterlevels](https://x.com/levelsio) (Verified, 500k+ followers; thread posted Oct 10, 2024)
 
-**Protocol (numbered steps):**
-1. Identify a painful problem in a niche you know (e.g., via Reddit/IndieHackers forums) – 30 mins.
-2. Prompt GPT-4 to generate 3 MVP ideas solving it with no-code tools (Carrd + Zapier + OpenAI API) – 15 mins.
-3. Build a smoke-test landing page on Carrd with Stripe buy button for $19 pre-order – 45 mins.
-4. Use Twitter/X ads + Reddit ads targeting niche ($50 budget) to drive 200 visitors – 30 mins setup, monitor 24 hrs.
-5. Analyze signups/conversions via Stripe + Hotjar heatmaps; interview 5 buyers via Calendly – 60 mins.
-6. If >5% conversion, ship MVP using Replit + Supabase in next 24 hrs; else pivot.
+### 3. Protocol (numbered steps)
+1. **Monday: Idea validation** - Post a 280-char product tweet with problem + solution sketch; aim for 50+ likes/replies in 24h. Kill if <20.
+2. **Tuesday: MVP spec** - Use Notion/Figma to outline 3 core features max; timebox to 2h, no perfection.
+3. **Wednesday-Thursday: Build** - Code only the 3 features using no/low-code (Bubble/Replit); deploy to Vercel/Netlify by EOD Thursday.
+4. **Friday: Launch & share** - Tweet demo video (<60s) + waitlist/signup link; DM 20 target users from replies for beta access.
+5. **Saturday: Collect data** - Track signups, feedback via Typeform (5 questions max); analyze churn signals.
+6. **Sunday: Iterate or pivot** - Fix top 3 issues or kill/repurpose if <10 signups; log in public Notion dashboard.
 
-**Anti-patterns (what NOT to do):**
-- Don't code a full product before validation (builds sunk cost fallacy).
-- Don't rely on organic traffic only (too slow for iteration).
-- Don't ignore buyer interviews (assumes you know customer pain).
-- Don't scale ads beyond $50 without 5% baseline conversion.
+### 4. Anti-patterns (what NOT to do)
+- Don't build without pre-validation (avoids 80% waste).
+- Don't scope >3 features (prevents "feature creep death").
+- Don't launch without a video demo (tweets flop 90% without visuals).
+- Don't ignore Sunday review (leads to repeated failures).
+- Don't hide progress (public builds audience + accountability).

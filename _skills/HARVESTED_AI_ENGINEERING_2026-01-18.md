@@ -1,16 +1,16 @@
-# AI-First Code Review Workflow
+# Cursor Composer Workflow for AI Engineering
 
-**Source:** @swyx
+**Source:** @swyx (verified, 100k+ followers)
 
 **Protocol:**
-1. **Prompt LLM with context**: Feed the code diff + repo README + recent PRs into Claude/GPT-4o with a custom system prompt emphasizing architecture, security, and perf.
-2. **Generate 3 variants**: Ask for 3 independent review passes (nitpicks, deep analysis, alternative impls) to reduce hallucination via self-consistency.
-3. **Agentic refinement**: Use a secondary agent (e.g., o1-mini) to critique and merge the 3 reviews into a single polished report with diffs.
-4. **Human veto loop**: Paste into GitHub PR; approve/reject suggestions manually, logging vetoes to fine-tune the system prompt iteratively.
-5. **Metrics dashboard**: Track acceptance rate, bug rate reduction, and cycle time in a Notion/Linear dashboard; retrain prompt monthly on veto data.
+1. Define the "vibe" of the project in 1-2 sentences (e.g., "Build a RAG pipeline that feels fast and reliable").
+2. Use Cursor Composer to generate initial boilerplate with @web search for latest libs (e.g., "@web LangGraph latest").
+3. Iterate in "vibe mode": Describe changes in natural language, apply diffs, test inline with Composer’s preview.
+4. Add evals early: Prompt Composer to "generate 5 synthetic test cases and pytest suite".
+5. Deploy via Composer: "@apply Deploy to Vercel with env vars from .env".
 
 **Anti-patterns:**
-- Reviewing code manually first (biases human judgment).
-- Using a single LLM pass (prone to oversights/missing edge cases).
-- Ignoring iterative fine-tuning (leads to stagnant prompt quality).
-- Skipping metrics tracking (can't prove ROI or improve).
+- Starting with architecture diagrams instead of prototyping vibes.
+- Manual dependency hunting without @web.
+- Skipping inline evals until "done".
+- Over-editing diffs manually—let Composer handle 80%.

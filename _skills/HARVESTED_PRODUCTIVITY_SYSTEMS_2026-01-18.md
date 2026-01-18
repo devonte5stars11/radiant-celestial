@@ -1,16 +1,15 @@
-# The "Cascade Planning" System
+# The 321 Productivity Protocol
 
-**Source:** @AlexHormozi
+**Source:** @hubermanlab
 
 **Protocol:**
-1. List your top 3 outcomes for the day (specific, measurable).
-2. Break each outcome into 3 micro-tasks (under 90 minutes each).
-3. Assign a "cascade trigger": Complete task 1 of Outcome 1 before starting anything else.
-4. Time-block in 90-minute sprints with 10-minute reviews: Log wins/blockers.
-5. End day with 5-minute "chain audit": Rate completion (0-10) and carry over 1 unfinished task to tomorrow's top.
+1. **3-Minute Prime**: Start day with 3 minutes of deliberate deep breathing (e.g., physiological sigh: double inhale, long exhale) to reset nervous system.
+2. **2-Hour Focus Block**: Dedicate next 2 hours to single highest-priority task; use non-sleep deep rest (NSDR) protocol (10-min body scan) if mind wanders.
+3. **1-Hour Review & Stack**: End block with 1 hour reviewing output, stacking 3 micro-wins into a "momentum log," then schedule next day's 2-hour block.
+4. Repeat 2-3 cycles daily, with 20-min walks between.
 
 **Anti-patterns:**
-- Multitasking across outcomes (finish cascade before switching).
-- Vague tasks (no "work on X," only specifics like "write 500 words").
-- Skipping reviews (no momentum without reflection).
-- Overloading (never more than 9 micro-tasks total).
+- Multitasking during focus blocks (dilutes dopamine).
+- Skipping the prime (leads to elevated cortisol).
+- Extending blocks beyond 2 hours (triggers fatigue).
+- Vague logging (must be 3 specific, quantifiable wins).

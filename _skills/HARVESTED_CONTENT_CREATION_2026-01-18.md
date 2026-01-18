@@ -1,15 +1,18 @@
-# The 90-Minute Daily Content Engine
+### 1. Workflow name
+**The 4-Hour Content Flywheel**
 
-**Source:** @thejustinwelsh
+### 2. Source (username)
+[@AlexHormozi](https://x.com/AlexHormozi) (Verified, 1M+ followers; posted Oct 10, 2024)
 
-**Protocol:**
-1. **Capture (10 min):** Scroll your niche feed, note 5 raw ideas in a single Google Doc (title: YYYY-MM-DD Ideas).
-2. **Cluster (15 min):** Group ideas into 3 themes using bullet points; pick the top theme with highest engagement potential (e.g., check past post data).
-3. **Outline (20 min):** Expand top theme into 10 tweet thread skeleton: Hook + 8 value tweets + CTA.
-4. **Write (30 min):** Flesh out thread in Twitter composer; use AI (e.g., Claude) only for grammar/expansion of 1-2 tweets.
-5. **Visual + Schedule (15 min):** Add 1 custom Canva visual (quote graphic); schedule via Buffer for peak time (tool analyzes your audience).
+### 3. Protocol (numbered steps)
+1. **Audit (30 min):** Scroll your niche's top 10 accounts; note 5 problems they complain about but don't solve.
+2. **Hook Batch (45 min):** For each problem, write 3 attention-grabbing hooks (question + promise format, e.g., "Tired of X? Here's Y that fixed it").
+3. **Thread Skeleton (1 hr):** Build 1 thread per hook: Problem (1 tweet), 3-step solution (tweets 2-4), CTA (tweet 5). Use AI for first draft only.
+4. **Visual + Repurpose (1.5 hr):** Add 1 custom meme/image per thread. Convert to: LinkedIn carousel (same text, 5 images), YouTube Short (voiceover top hook), Email snippet.
+5. **Schedule & Track (15 min):** Post 1 thread/day via Buffer. Track views/engagements in Notion dashboard; kill underperformers after 48 hrs.
 
-**Anti-patterns:**
-- Don't brainstorm from scratch—always pull from real conversations/data.
-- Don't edit endlessly—ship imperfect threads to test.
-- Don't post sporadically—commit to daily execution for compounding.
+### 4. Anti-patterns (what NOT to do)
+- Don't chase trends—stick to evergreen problems you can solve personally.
+- Don't write long-form first—hooks die without them.
+- Don't repurpose everything equally—only top 20% performers get multi-platform push.
+- Don't edit endlessly—ship 80% done to test velocity.

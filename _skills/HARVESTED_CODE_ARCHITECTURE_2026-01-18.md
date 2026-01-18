@@ -1,17 +1,19 @@
-# Dependency Injection Architecture Workflow
+### Modular Monolith Evolution Protocol
 
 **Source:** @swyx
 
 **Protocol:**
-1. Define core domain entities as plain data classes without dependencies.
-2. Create use case classes that orchestrate business logic, injecting repositories via constructor.
-3. Implement repositories as interfaces with concrete adapters for DB/HTTP/external services.
-4. Use a DI container (e.g., tsyringe or Inversify) to wire interfaces to implementations at app bootstrap.
-5. Layer HTTP controllers/GraphQL resolvers to invoke use cases, passing validated input DTOs.
-6. Test use cases in isolation by mocking injected dependencies.
+1. Start with a single repo and minimal layers: domain (entities/use cases), application (services), infrastructure (DB/externals).
+2. Define explicit boundaries with interfaces (ports) for all external dependencies.
+3. Implement feature toggles for every new module to enable/disable at runtime.
+4. Use database-per-domain schema with views for cross-domain queries (no joins across domains).
+5. Extract to microservices only after 3+ teams depend on it and monolith perf degrades >20%.
+6. Automate boundary enforcement with custom linters (e.g., no direct infra imports in domain).
+7. Quarterly "architecture spike": prototype one risky integration in a throwaway service.
 
 **Anti-patterns:**
-- Hardcoding dependencies inside classes (service locator anti-pattern).
-- Mixing domain logic with infrastructure concerns in entities.
-- Global singletons for stateful services.
-- Skipping interface abstraction for third-party libs.
+- Premature microservices (split before monolith pain).
+- Anemic domain models (logic in services, not entities).
+- Shared databases across bounded contexts.
+- Cyclic dependencies between layers.
+- Big Bang rewrites (evolve incrementally only).
