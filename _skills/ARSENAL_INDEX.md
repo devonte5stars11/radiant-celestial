@@ -9,7 +9,8 @@ This directory contains crystallized knowledge for autonomous development. Each 
 
 | Skill | Class | Purpose |
 |-------|-------|---------|
-| [UI_FORGE](./UI_FORGE.md) | Frontend | Shadcn/Tailwind/Framer Motion aesthetics |
+| [MISSION_CONTROL](./MISSION_CONTROL.md) | Meta | Agent workflow logic & command manual |
+| [APEX_UI_PROTOCOL](./APEX_UI_PROTOCOL.md) | Execution | God-Tier UI & Vibe Coding Standard |
 | [SOVEREIGN_DATA](./SOVEREIGN_DATA.md) | Architecture | Zustand + LocalStorage persistence |
 | [TRINITY_PROTOCOL](./TRINITY_PROTOCOL.md) | Orchestration | Multi-model routing (Gemini/DeepSeek/Claude) |
 | [MCP_COMMANDER](./MCP_COMMANDER.md) | Tooling | File/Browser/Terminal mastery |
