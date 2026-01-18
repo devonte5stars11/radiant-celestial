@@ -1,0 +1,53 @@
+name: Ralph Protocol - Night Shift
+
+on:
+  schedule:
+    # Runs every Sunday at 2:00 AM UTC
+    - cron: "0 2 * * 0"
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  harvest-skills:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: .
+
+      - name: Run Skill Harvester (Optional)
+        run: |
+          if [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "⚠️ OPENROUTER_API_KEY not configured - skipping skill harvest"
+            echo "Ralph will monitor other tasks. Add API key to GitHub Secrets to enable harvesting."
+            exit 0
+          fi
+          node scripts/harvest-skills.mjs
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "Ralph Protocol"
+          git config user.email "ralph@sovereignty.ai"
+
+      - name: Commit and push new skills
+        run: |
+          git add _skills/
+          if git diff --staged --quiet; then
+            echo "✅ No new skills harvested this week"
+          else
+            git commit -m "[RALPH] Weekly skill harvest - $(date +%Y-%m-%d)"
+            git push
+          fi

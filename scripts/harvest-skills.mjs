@@ -25,6 +25,14 @@ const NICHES = [
     'Engineering Leadership'
 ];
 
+// Check for API key
+if (!process.env.OPENROUTER_API_KEY) {
+    console.error('❌ Error: OPENROUTER_API_KEY not found in environment.');
+    console.log('💡 Tip: Add your OpenRouter API key to .env file or GitHub Secrets');
+    console.log('📚 See: https://openrouter.ai/keys');
+    process.exit(0); // Exit gracefully (not an error for CI/CD)
+}
+
 async function harvestSkills() {
     console.log('🧬 Skill Harvester: Starting scan...\n');
 
