@@ -20,7 +20,7 @@ Beyond single-model routing (Trinity), Agent Swarm deploys a **team of specialis
 ### 🎨 UX Specialist
 **Role**: Improve user experience, accessibility, design consistency  
 **Focus**: A11y, mobile responsiveness, visual hierarchy, micro-interactions  
-**Model**: Claude 3.5 Sonnet (human-centric reasoning)
+**Model**: Gemini 2.0 Flash (multimodal vision for UI analysis)
 
 ### 📚 Documentation Expert
 **Role**: Create clear, comprehensive documentation  

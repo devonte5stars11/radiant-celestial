@@ -35,13 +35,14 @@ Provide measurable performance improvements.`
     },
     ux: {
         name: '🎨 UX Specialist',
-        model: 'anthropic/claude-3.5-sonnet',
-        systemPrompt: `You are a UX/UI expert focused on user experience. Analyze:
+        model: 'google/gemini-2.0-flash-exp:free',
+        systemPrompt: `You are a UX/UI expert with visual design expertise. Analyze:
 - Accessibility (WCAG compliance)
 - Mobile responsiveness
 - Visual hierarchy and clarity
 - Micro-interactions and feedback
 - Error handling and edge cases
+When screenshots are provided, analyze the visual design deeply.
 Provide user-centered design recommendations.`
     },
     docs: {
