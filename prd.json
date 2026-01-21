@@ -9,22 +9,22 @@
         {
             "id": 1,
             "story": "Integrate 'Loss Aversion' psychology into Habit Grid (Red glow when streak < 3).",
-            "done": false
+            "done": true
         },
         {
             "id": 2,
             "story": "Connect 'Habit Stats' dashboard card to real Zustand store data.",
-            "done": false
+            "done": true
         },
         {
             "id": 3,
             "story": "Implement 'Sovereign Data' flow: Export/Import JSON in Settings page.",
-            "done": false
+            "done": true
         },
         {
             "id": 4,
             "story": "Polish: Add 'Viral' micro-animations to all button interactions.",
-            "done": false
+            "done": true
         }
     ]
 }

@@ -1,11 +1,54 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, CheckCircle2, Flame } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, Flame, Target, TrendingUp, Zap } from "lucide-react";
 import { HabitGrid } from "@/components/habit-grid";
 import { CreateHabitForm } from "@/components/create-habit-form";
+import { useHabitStore } from "@/store/habit-store";
+
+/**
+ * Stats Dashboard - Connected to Live Zustand Data
+ */
+function StatsDashboard() {
+  const { habits, getStreak } = useHabitStore();
+  const today = new Date().toISOString().split("T")[0];
+
+  const stats = useMemo(() => {
+    const totalHabits = habits.length;
+    const completedToday = habits.filter((h) => h.completedDates.includes(today)).length;
+    const completionRate = totalHabits > 0 ? Math.round((completedToday / totalHabits) * 100) : 0;
+    const longestStreak = habits.reduce((max, h) => Math.max(max, getStreak(h.id).current), 0);
+    return { totalHabits, completedToday, completionRate, longestStreak };
+  }, [habits, today, getStreak]);
+
+  const cards = [
+    { label: "Total Protocols", value: stats.totalHabits, icon: Target, color: "text-blue-400" },
+    { label: "Completed Today", value: stats.completedToday, icon: CheckCircle2, color: "text-green-400" },
+    { label: "Completion Rate", value: `${stats.completionRate}%`, icon: TrendingUp, color: "text-amber-400" },
+    { label: "Longest Streak", value: `${stats.longestStreak} days`, icon: Zap, color: "text-purple-400" },
+  ];
+
+  return (
+    <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {cards.map((card) => (
+        <motion.div
+          key={card.label}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 backdrop-blur-sm"
+        >
+          <card.icon className={`h-8 w-8 ${card.color}`} />
+          <div>
+            <p className="text-2xl font-bold text-white">{card.value}</p>
+            <p className="text-xs text-zinc-500">{card.label}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 /**
  * Hero Section for Habit Forge Dashboard (Ultimate Edition)
@@ -126,6 +169,10 @@ export default function Home() {
             <CreateHabitForm />
           </div>
         </div>
+
+        {/* STATS DASHBOARD (Connected to Zustand) */}
+        <StatsDashboard />
+
         <HabitGrid />
       </section>
 

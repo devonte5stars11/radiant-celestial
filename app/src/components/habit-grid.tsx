@@ -24,7 +24,7 @@ export function HabitGrid() {
                         exit={{ opacity: 0, scale: 0.9 }}
                         className={cn(
                             "group relative flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-sm transition-all hover:bg-zinc-900",
-                            isAtRisk && "border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.1)]"
+                            isAtRisk && "border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)] animate-pulse"
                         )}
                     >
                         {/* Header */}
@@ -37,9 +37,9 @@ export function HabitGrid() {
                                         {current} day streak
                                     </span>
                                     {isAtRisk && (
-                                        <span className="flex items-center gap-1 text-orange-400">
+                                        <span className="flex items-center gap-1 text-red-400 font-semibold">
                                             <AlertTriangle className="h-3 w-3" />
-                                            At Risk
+                                            DANGER
                                         </span>
                                     )}
                                 </div>
