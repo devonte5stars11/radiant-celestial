@@ -151,6 +151,29 @@ async function smartLLMCall(role, model, instructions) {
 async function runBusiness() {
     log("🏢 RALPH ENTERPRISES v2.0: MAX POTENTIAL ACTIVE");
 
+    // --- CLI HOT TASK INJECTION ---
+    const args = process.argv.slice(2);
+    if (args.length > 0) {
+        const prompt = args.join(' ');
+        log(`🔥 HOT TASK DETECTED: "${prompt}"`);
+
+        let existingPrd = { tasks: [] };
+        if (fs.existsSync(CONFIG.prdFile)) {
+            existingPrd = JSON.parse(fs.readFileSync(CONFIG.prdFile, 'utf8'));
+        }
+
+        // Inject at top with ID 'hot-{timestamp}'
+        const hotTask = {
+            id: `hot-${Date.now()}`,
+            story: prompt,
+            done: false,
+            isHot: true // Flag to skip rigid checks if needed
+        };
+
+        existingPrd.tasks.unshift(hotTask);
+        fs.writeFileSync(CONFIG.prdFile, JSON.stringify(existingPrd, null, 2));
+    }
+
     for (let i = 1; i <= CONFIG.maxLoops; i++) {
         log(`\n⏰ [Quarter ${i}] Starting New Sprint...`);
 
@@ -188,9 +211,16 @@ Output a concise plan.`;
             log("   🧠 Strategy defined.");
 
             // --- 2. ENGINEER: BUILD ---
-            // Gather context by reading key files
+            // Gather context by reading key files (Smart Discovery)
             const packageJson = readFile('package.json') || '{}';
-            const existingCode = readFile('src/App.tsx') || readFile('src/pages/Index.tsx') || '';
+
+            // Smart Entry File Discovery
+            let existingCode = '';
+            const entrySearchPaths = ['src/App.tsx', 'src/pages/Index.tsx', 'app/src/app/page.tsx', 'app/page.tsx', 'README.md'];
+            for (const p of entrySearchPaths) {
+                const content = readFile(p);
+                if (content) { existingCode = content; log(`   📂 Context from: ${p}`); break; }
+            }
 
             const engineerPrompt = `
 ## STRATEGY
@@ -241,19 +271,26 @@ Respond with ONLY a JSON object. No markdown, no explanation.
                 continue;
             }
 
-            // --- 3. VERIFIER: BUILD CHECK ---
-            log("   🧪 Running build verification...");
-            const buildResult = runCommand('npm run build');
+            // --- 3. VERIFIER: BUILD CHECK (Skip for Research/Docs) ---
+            const isCodeTask = !currentTask.story.toLowerCase().startsWith('research') &&
+                !currentTask.story.toLowerCase().startsWith('post');
 
-            if (!buildResult.success) {
-                log("   ❌ Build failed!");
-                lastError = buildResult.stderr.substring(0, 1000); // Feed error back
-                // Rollback
-                runCommand('git checkout .');
-                runCommand('git clean -fd');
-                continue;
+            if (isCodeTask) {
+                log("   🧪 Running build verification...");
+                const buildResult = runCommand('npm run build');
+
+                if (!buildResult.success) {
+                    log("   ❌ Build failed!");
+                    lastError = buildResult.stderr.substring(0, 1000); // Feed error back
+                    // Rollback
+                    runCommand('git checkout .');
+                    runCommand('git clean -fd');
+                    continue;
+                }
+                log("   ✅ Build passed!");
+            } else {
+                log("   ⏩ Skipping Build Verification (General/Research Task)");
             }
-            log("   ✅ Build passed!");
 
             // --- 4. VERIFIER: FINAL APPROVAL ---
             const verifierPrompt = `
@@ -286,7 +323,8 @@ Respond ONLY with JSON: {"approved": true} or {"approved": false, "reason": "...
             currentTask.done = true;
             fs.writeFileSync(CONFIG.prdFile, JSON.stringify(prd, null, 2));
             runCommand('git add .');
-            runCommand(`git commit -m "feat: ${currentTask.story} (Ralph v2)"`);
+            runCommand(`git commit -m "feat: ${currentTask.story} (Ralph v2.2)"`);
+            runCommand('git push'); // 🚀 Push to Remote
             runCommand('npm run harvest'); // Night Shift
         } else {
             log(`🚫 TASK FAILED after ${CONFIG.maxRetries} retries. Skipping for now.`);
