@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "ralph": "node scripts/ralph-corp.mjs",
+    "harvest": "node scripts/harvest-skills.mjs",
+    "generate": "node scripts/generate-assets.mjs"
+  },
   "dependencies": {
     "dotenv": "^17.2.3",
     "openai": "^6.16.0"

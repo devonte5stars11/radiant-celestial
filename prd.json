@@ -1,68 +1,30 @@
-[
-    {
-        "id": 1,
-        "priority": 10,
-        "status": "DONE",
-        "task": "Init 'Habit Forge' dashboard with Next.js 16 + Shadcn/UI.",
-        "hormozi_note": "Hero Section: 'Forge Unbreakable Habits in 2026'. Desire: High.",
-        "technical_rule": "Use Gemini to plan structure, DeepSeek to code components, Claude to add JSDoc.",
-        "acceptance_criteria": [
-            "LCP < 1.0s",
-            "Green TSC",
-            "0 Accessibility errors",
-            "Dark mode by default"
-        ]
+{
+    "company_mission": "Empire of the Self: Building the Ultimate Human Being Studio.",
+    "departments": {
+        "leader": "Grok-beta: Define strategy from viral trends.",
+        "engineering": "DeepSeek-R1: Implement 'God-Tier' React/Tailwind code.",
+        "verifier": "Gemini-2.0-Pro: Audit for 'Apex' quality."
     },
-    {
-        "id": 2,
-        "priority": 9,
-        "status": "DONE",
-        "task": "Implement 'Streak Gamification' logic.",
-        "hormozi_note": "Add 'Loss Aversion' notifications. Users hate losing streaks more than they love gaining them.",
-        "technical_rule": "Use Grok to verify current gamification trends on X first.",
-        "acceptance_criteria": [
-            "Unit tested with Vitest (>90% coverage)",
-            "Zustand for state management",
-            "Celebrate milestones (7, 30, 100 days)"
-        ]
-    },
-    {
-        "id": 3,
-        "priority": 8,
-        "status": "DONE",
-        "task": "Build Navigation Shell with sidebar and header.",
-        "hormozi_note": "Command palette (Cmd+K) for power users. Premium feel.",
-        "technical_rule": "Claude polishes the final animations and transitions.",
-        "acceptance_criteria": [
-            "Responsive down to 375px",
-            "Keyboard accessible",
-            "Smooth 60fps transitions"
-        ]
-    },
-    {
-        "id": 4,
-        "priority": 7,
-        "status": "DONE",
-        "task": "Develop 'Analytics Engine' with Recharts.",
-        "hormozi_note": "Visual proof of work. Users need to SEE their progress to believe it.",
-        "technical_rule": "DeepSeek ensures accurate data aggregation.",
-        "acceptance_criteria": [
-            "Area chart for consistency",
-            "Metric cards for KPIs",
-            "Mobile responsive charts"
-        ]
-    },
-    {
-        "id": 5,
-        "priority": 6,
-        "status": "DONE",
-        "task": "Implement 'Settings & Data Sovereignty'.",
-        "hormozi_note": "True sovereignty means owning your data. Export/Import is non-negotiable.",
-        "technical_rule": "JSON based export/import. LocalStorage persistence.",
-        "acceptance_criteria": [
-            "Download full state as JSON",
-            "Restore state from JSON",
-            "Nuke data option"
-        ]
-    }
-]
+    "tasks": [
+        {
+            "id": 1,
+            "story": "Integrate 'Loss Aversion' psychology into Habit Grid (Red glow when streak < 3).",
+            "done": false
+        },
+        {
+            "id": 2,
+            "story": "Connect 'Habit Stats' dashboard card to real Zustand store data.",
+            "done": false
+        },
+        {
+            "id": 3,
+            "story": "Implement 'Sovereign Data' flow: Export/Import JSON in Settings page.",
+            "done": false
+        },
+        {
+            "id": 4,
+            "story": "Polish: Add 'Viral' micro-animations to all button interactions.",
+            "done": false
+        }
+    ]
+}

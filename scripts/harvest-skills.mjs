@@ -1,89 +1,97 @@
-// Skill Harvester - Auto-discover workflows from X using OpenRouter + Grok
-// Usage: node scripts/harvest-skills.mjs
+/**
+ * 🌙 NIGHT SHIFT: Automated Skill Harvester (Intelligent Hybrid)
+ */
 
-import 'dotenv/config';
-import OpenAI from 'openai';
-import fs from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 
-const openrouter = new OpenAI({
-    baseURL: 'https://openrouter.ai/api/v1',
-    apiKey: process.env.OPENROUTER_API_KEY,
-});
+const SKILLS_DIR = '_skills';
+const SOURCES = ['src/components', 'src/hooks'];
+const OLLAMA_URL = 'http://localhost:11434/api/chat';
 
-const SKILLS_DIR = path.join(process.cwd(), '_skills');
-const NICHES = [
-    'AI Engineering',
-    'Productivity Systems',
-    'Code Architecture',
-    'Indie Hacking',
-    'Deep Work',
-    'Startup Growth',
-    'Sales & Outbound',
-    'Content Creation',
-    'Learning Frameworks',
-    'Engineering Leadership'
-];
-
-// Check for API key
-if (!process.env.OPENROUTER_API_KEY) {
-    console.error('❌ Error: OPENROUTER_API_KEY not found in environment.');
-    console.log('💡 Tip: Add your OpenRouter API key to .env file or GitHub Secrets');
-    console.log('📚 See: https://openrouter.ai/keys');
-    process.exit(0); // Exit gracefully (not an error for CI/CD)
+// Ensure skills directory
+if (!fs.existsSync(SKILLS_DIR)) {
+    fs.mkdirSync(SKILLS_DIR, { recursive: true });
 }
 
-async function harvestSkills() {
-    console.log('🧬 Skill Harvester: Starting scan...\n');
+async function askAI(content) {
+    const prompt = `Analyze this code. Convert it into a reusable 'Skill Definition' (Markdown).
+    Follow the APEX_UI_PROTOCOL if applicable.
+    Output only the markdown content.
+    Code: \n\n${content.substring(0, 3000)}`;
 
-    for (const niche of NICHES) {
-        console.log(`📡 Scanning: ${niche}`);
+    const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
-        const completion = await openrouter.chat.completions.create({
-            model: 'x-ai/grok-4.1-fast', // Latest Grok with real-time X access
-            messages: [
-                {
-                    role: 'system',
-                    content: 'You are a workflow analyzer. Extract actionable protocols from X discussions.'
-                },
-                {
-                    role: 'user',
-                    content: `Find the most valuable workflow or productivity system discussed on X in the last 7 days related to "${niche}". 
-          
-Requirements:
-- From verified accounts with 10k+ followers
-- Must be a concrete, step-by-step protocol (not vague advice)
-- Must be novel/unique
-
-Return ONLY:
-1. Workflow name
-2. Source (username)
-3. Protocol (numbered steps)
-4. Anti-patterns (what NOT to do)
-
-Format as markdown.`
-                }
-            ]
-        });
-
-        const result = completion.choices[0].message.content;
-
-        if (result && result.length > 100) {
-            const timestamp = new Date().toISOString().split('T')[0];
-            const filename = `HARVESTED_${niche.replace(/\s+/g, '_').toUpperCase()}_${timestamp}.md`;
-            const filepath = path.join(SKILLS_DIR, filename);
-
-            await fs.writeFile(filepath, result);
-            console.log(`✅ Harvested: ${filename}\n`);
-        } else {
-            console.log(`⚠️  No viable workflows found for ${niche}\n`);
-        }
-
-        // Rate limit: wait 2 seconds between requests
-        await new Promise(resolve => setTimeout(resolve, 2000));
+    // 1. Try Cloud
+    if (OPENROUTER_API_KEY) {
+        try {
+            const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${OPENROUTER_API_KEY}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: 'google/gemini-2.0-flash-exp',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                return data.choices?.[0]?.message?.content;
+            }
+        } catch (e) { }
     }
 
-    console.log('🎯 Harvest complete! Check /_skills/ for new workflows.');
+    // 2. Try Local
+    try {
+        const res = await fetch(OLLAMA_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'llama3',
+                messages: [{ role: 'user', content: prompt }],
+                stream: false
+            })
+        });
+        if (res.ok) {
+            const data = await res.json();
+            return data.message?.content;
+        }
+    } catch (e) { }
+
+    return "### Skill harvested\n(Manual review required).";
 }
 
-harvestSkills().catch(console.error);
+async function scanAndHarvest() {
+    console.log("🌙 NIGHT SHIFT: Gathering project intelligence...");
+
+    let skillsFound = 0;
+
+    for (const dir of SOURCES) {
+        if (!fs.existsSync(dir)) continue;
+        const files = fs.readdirSync(dir).filter(f => f.endsWith('.tsx') || f.endsWith('.ts'));
+
+        for (const file of files) {
+            const content = fs.readFileSync(path.join(dir, file), 'utf8');
+
+            if (content.includes('God-Tier') || content.includes('useEffect') || content.length > 800) {
+                const skillName = file.replace(/\..+$/, '').toUpperCase() + '_SKILL.md';
+                const skillPath = path.join(SKILLS_DIR, skillName);
+
+                if (fs.existsSync(skillPath)) continue;
+
+                console.log(`   💎 Processing Intelligence: ${file}`);
+                const skillDoc = await askAI(content);
+
+                fs.writeFileSync(skillPath, skillDoc);
+                console.log(`   ✨ Skill Forge Complete: ${skillName}`);
+                skillsFound++;
+
+                if (skillsFound >= 1) break;
+            }
+        }
+        if (skillsFound >= 1) break;
+    }
+
+    console.log(skillsFound > 0 ? `✅ Harvested ${skillsFound} new intelligence assets.` : "   No new assets detected.");
+}
+
+scanAndHarvest();

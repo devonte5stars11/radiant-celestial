@@ -1,7 +1,6 @@
 # 🚀 Skill: APEX_UI_PROTOCOL
 **Class**: `Execution / UI`
 **Purpose**: The "God-Tier" standard for shipping Minimum Delightful Products (MDP) with zero-friction execution.
-**Successor To**: `UI_FORGE`
 
 ## 1. The Stack Matrix (2026 Power Utility)
 
@@ -58,9 +57,3 @@ Before generating code, output a brief plan:
 3.  **Delight:** Identify 1 micro-interaction to add (e.g., hover lift).
 4.  **Execute:** Write the code.
 ```
-
-## 4. Innovation Coach "Reality Check"
-
-Before building, verify:
-- **Is this a Painkiller?** (Solves a burning problem -> Focus on speed/clarity)
-- **Is this a Delight-maker?** (Creates a habit -> Focus on `motion/react` and "feel")

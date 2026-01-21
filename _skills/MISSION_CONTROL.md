@@ -39,13 +39,3 @@ Perform the "Rams Protocol":
 * "Delightful" interaction confirmed.
 * No WCAG violations.
 ```
-
-## 3. The Antigravity Workflow Loop
-
-| Step | Action | The "Alpha" Move |
-| :--- | :--- | :--- |
-| **1. Spawn** | Use `AGENT_FORGE` or `AGENT_SWARM`. | Assign specific roles (e.g., "UI Specialist"). |
-| **2. Brief** | Use the **Mission Prompt** above. | Attach `ui-skills` context / `APEX_UI_PROTOCOL`. |
-| **3. Monitor** | Review "Plan" artifact. | **Reject** if accessibility/shadcn isn't explicit. |
-| **4. Verify** | Review outcomes/screenshots. | Don't trust code. Trust the visual. |
-| **5. Merge** | Commit changes. | Run final QA. |
