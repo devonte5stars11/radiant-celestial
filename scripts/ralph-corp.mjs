@@ -106,6 +106,7 @@ async function smartLLMCall(role, model, instructions) {
         { role: 'user', content: instructions }
     ];
 
+    // 1. TIER 1: CLOUD (OpenRouter)
     if (OPENROUTER_API_KEY) {
         try {
             const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -128,7 +129,7 @@ async function smartLLMCall(role, model, instructions) {
         }
     }
 
-    // Local Fallback
+    // 2. TIER 2: LOCAL (Ollama)
     try {
         const response = await fetch(CONFIG.ollamaBaseUrl, {
             method: 'POST',
@@ -139,7 +140,24 @@ async function smartLLMCall(role, model, instructions) {
             const data = await response.json();
             return data.message?.content || 'No local response';
         }
-    } catch (e) { }
+    } catch (e) {
+        log(`   ⚠️ Local Ollama unreachable. Switching to Mock Engine.`);
+    }
+
+    // 3. TIER 3: MOCK ENGINE (Zero-Dependency)
+    // Deterministic fallback so the system ALWAYS works
+    if (role === 'Leader') {
+        return `Identify the file paths. PLAN: Create/Modify src/components/GeneratedComponent.tsx or README.md.`;
+    }
+    if (role === 'Engineer') {
+        // Simple boilerplate generator
+        return JSON.stringify({
+            files: [{
+                path: "src/RALPH_GENERATED.md",
+                content: `# Ralph Corp (Offline Mode)\n\nI tried to reach the Cloud and Local AI, but both were offline.\n\n### Task\n${instructions.substring(0, 100)}...\n\n### Action\nI created this file to prove I am still listening. Please set OPENROUTER_API_KEY or start Ollama to unleash my full potential.`
+            }]
+        });
+    }
 
     return role === 'Verifier' ? '{"approved": true}' : '{"files": []}';
 }
